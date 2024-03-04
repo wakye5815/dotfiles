@@ -1,4 +1,5 @@
 HISTFILE=~/.zsh_history
+
 HISTSIZE=1000000
 SAVEHIST=1000000
 
@@ -18,7 +19,7 @@ zplug "mollifier/anyframe"
 zplug "mollifier/cd-gitroot"
 # zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "zsh-users/zsh-history-substring-search"
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+# zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 zplug "supercrabtree/k"
 zplug "junegunn/fzf", use:shell/key-bindings.zsh
@@ -49,3 +50,11 @@ zplug load
 if [ -f ~/.zsh_local ]; then
   source ~/.zsh_local
 fi
+
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+
+alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+alias deno='docker run --rm -ti -v $(pwd):/workingdir -w /workingdir denoland/deno:1.39.2'
+alias sbt='docker run --rm -ti -v ~/.sbt:/root/.sbt -v ~/.cache/coursier:/root/.cache/coursier/v1/https -v $(pwd):/workingdir -w /workingdir sbtscala/scala-sbt:eclipse-temurin-focal-17.0.10_7_1.9.8_2.12.18 sbt'
+
